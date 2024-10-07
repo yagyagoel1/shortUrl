@@ -24,7 +24,7 @@ model Url{
 
 model ClicksInfo{
   id        String   @id @default(cuid())
-  ViewIp   String
+  ViewIp   String?
   ViewDate DateTime @default(now())
   url      Url      @relation(fields: [urlId], references: [id])
   urlId    String

@@ -43,8 +43,6 @@ const getUrl:ReturnType<typeof asyncHandler> = asyncHandler(async(req:Request,re
     if(!shortUrl)
         return res.status(400).json(new ApiResponse(400,"shortUrl is required"))
     const ip  = req.ip
-    if(!ip)
-        return res.status(400).json(new ApiResponse(400,"ip is required"))
     const feedback = await prismaClient?.url.findFirst({
         where:{
             shortUrl
