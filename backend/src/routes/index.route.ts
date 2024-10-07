@@ -10,6 +10,6 @@ const router:ReturnType<typeof Router>  = Router()
 
 router.get("/:id",getUrl)
 router.use("/api/v1/",urlRoutes)
-router.use("/analytics",analyticsRoutes)
+router.use("/api/v1/analytics",analyticsRoutes)
 
 export default router
