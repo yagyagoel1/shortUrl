@@ -36,7 +36,7 @@ const AnalyticsSection = () => {
     try {
         toast("Loading...")
       const response = await axios.get(
-        `http://localhost:3000/api/v1/analytics?shortUrl=${text}`
+        `${process.env.DOMAIN}/api/v1/analytics?shortUrl=${text}`
       );
       if (response.data.success) {
         const feedback = response.data.data.clicks.reduce(
