@@ -14,7 +14,7 @@ const HeroSection = () => {
       toast.error("please check the url it should be https")
     }
     try{
-    const response = await axios.post(`${process.env.DOMAIN}/api/v1/url/create`,{url:text})
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_DOMAIN}/api/v1/url/create`,{url:text})
     if(response.data.success==true){
       setShortUrl(response.data.data.shortUrl)
       toast.success("Short Url Created Successfully")
