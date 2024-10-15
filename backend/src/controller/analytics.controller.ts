@@ -8,9 +8,11 @@ import { ApiResponse } from "../utils/apiResponse";
 
 
 const getAnalytics =  asyncHandler(async(req:Request,res:Response)=>{
-    const {shortUrl} = req.query
+    let shortUrl= req.query.shortUrl as string
+    
     if(!shortUrl)
         return res.status(400).json({message:"shortUrl is required"})
+    shortUrl = shortUrl.substring(shortUrl.lastIndexOf("/")+1,shortUrl.length)
     const feedback = await prismaClient?.url.findFirst({
         where:{
             shortUrl:String(shortUrl)
